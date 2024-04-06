@@ -1,5 +1,12 @@
-#include <stdio.h>
+int add(int, int);
 int main(int argc, char* argv[]) {
-	printf("hello, world.\n");
-	return 0;
+	int x;
+	int y;
+	x = 1;
+	y = 2;
+	return add(x, y);
+}
+
+int add(int a, int b) {
+	return a + b;
 }
