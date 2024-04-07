@@ -1,6 +1,11 @@
 #include <iostream>
 #include <string>
 int add(int, int);
+class Add_math {
+public:
+	int opperator()(int a, int b){
+		return a+b;
+}
 
 class Student {
 private:
