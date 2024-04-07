@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
 	y = 2;
 	Student s("John", 99.0);
 	s.show();
-	Add_math add();
+	Add_math add;
 	int sum = add(x, y);
 	return add(x, y);
 }
