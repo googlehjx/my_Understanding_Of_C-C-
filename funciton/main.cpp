@@ -6,7 +6,7 @@ public:
 	int opperator()(int a, int b){
 		return a+b;
 }
-auto fun = [](Student &s){std::cout<<"name: "<<s.name<<" Score: " <<s.score<<std::endl;
+
 class Student {
 private:
 	std::string name;
@@ -17,6 +17,8 @@ public:
 		std::cout << "name: " << name << " " << "score: " << score << std::endl;
 	}
 };
+
+auto fun = [](Student &s){std::cout<<"name: "<<s.name<<" Score: " <<s.score<<std::endl;
 int main(int argc, char* argv[]) {
 	int x;
 	int y;
@@ -26,6 +28,7 @@ int main(int argc, char* argv[]) {
 	s.show();
 	Add_math add_functor;  
 	int sum = add_functor(x, y);
+	fun(s);
 	return add(x, y);
 }
 
