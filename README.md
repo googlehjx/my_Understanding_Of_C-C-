@@ -156,18 +156,33 @@ C和C++还要求函数调用前，因为先**声明**，也就是给出说明，
 和传入参数，也叫**函数原型**。这样编译器就能识别出调用是否合法。
 所以，上面正确的写法是：
 ```c
-int add(int, int);
-int main(int argc, char* argv[]) {
-	int x;
-	int y;
-	x = 1;
-	y = 2;
-	return add(x, y);
-}
+int add(int, int);   // 声明普通函数
 
-int add(int a, int b) {
+template<typename T>  // 函数模板
+T add_temp(T a, T b) {
 	return a + b;
 }
+
+template<>   // 函数模板特化
+double add_temp<double>(double a, double b) {
+	std::cout << "specialization template function" << std::endl;
+	return a + 1.0;
+}
+
+class Add_math {     // 定义类型，重写函数操作符，其对象可作为函数符使用
+public:
+	int operator()(int a, int b) {
+		return a + b;
+	}
+};
+
+class Student {
+public:
+	std::string name;
+	float score;
+};
+// lambda表达式
+auto fun = [](Student& s) {std::cout << "name: " << s.name << " Score: " << s.score << std::endl; };
 ```
 同样的方法可以定义其他函数，比如减法、乘法或者更加复杂的处理函数。
 说到函数，还有一个概念就是**函数重载**，本质就是函数名相同，但是传入的
